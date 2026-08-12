@@ -15,6 +15,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "src/stories/temp-modal/**",
+    "src/stories/temp-alert/**",
   ]),
   ...storybook.configs["flat/recommended"]
 ]);
