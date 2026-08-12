@@ -9,6 +9,18 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    variant: {
+      control: { type: "select" },
+      options: ["primary", "secondary"],
+      description: "Define a variante de estilo do botão",
+    },
+    rounded: {
+      control: { type: "select" },
+      options: ["none", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
+      description: "Define o quão arredondados são os cantos do botão",
+    },
+  },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 
@@ -17,35 +29,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: "Botão Primário",
+    variant: "primary",
+    label: "Button",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: "Botão Secundário",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: "large",
-    label: "Botão Grande",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "small",
-    label: "Botão Pequeno",
+    variant: "secondary",
+    label: "Button",
   },
 };
 
 export const CustomClassName: Story = {
   args: {
-    primary: true,
-    label: "Botão Personalizado",
+    variant: "primary",
+    label: "Button",
     className: "bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg rounded-md px-8 py-3",
   },
 };
