@@ -5,6 +5,9 @@ const meta = {
   title: "Components/Card",
   component: Card,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
   argTypes: {
     videoTitle: { control: "text" },
     status: { control: "text" },
@@ -45,5 +48,3 @@ export const Concluido: Story = {
     imageLabel: "Miniatura do vídeo",
   },
 };
-
-
