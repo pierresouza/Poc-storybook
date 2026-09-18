@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { fn } from "storybook/test";
-import { Button } from "./Button";
+import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Button",
+  title: "Sistema-CAF/Button",
   component: Button,
   parameters: {
     layout: "centered",
@@ -18,7 +18,7 @@ const meta = {
     rounded: {
       control: { type: "select" },
       options: ["none", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
-      description: "Define o quão arredondados são os cantos do botão",
+      description: "Define o arredondamento dos cantos",
     },
   },
   args: { onClick: fn() },
@@ -30,21 +30,23 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     variant: "primary",
-    label: "Button",
+    label: "CAF - Salvar Registro",
+    rounded: "md",
   },
 };
 
 export const Secondary: Story = {
   args: {
     variant: "secondary",
-    label: "Button",
+    label: "CAF - Voltar",
+    rounded: "md",
   },
 };
 
-export const CustomClassName: Story = {
+export const CustomStyle: Story = {
   args: {
     variant: "primary",
-    label: "Button",
-    className: "bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg rounded-md px-8 py-3",
+    label: "CAF - Gerar Relatório",
+    className: "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md rounded-md px-6 py-2.5",
   },
 };
