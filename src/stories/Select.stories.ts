@@ -19,7 +19,7 @@ const meta = {
   args: {
     onChange: fn(),
     options: cityOptions,
-    placeholder: "Selecione uma cidade",
+    placeholder: "Select a city",
   },
 } satisfies Meta<typeof Select>;
 
@@ -37,9 +37,10 @@ export const WithValue: Story = {
 export const Small: Story = {
   args: {
     size: "small",
-    placeholder: "Cidade",
+    placeholder: "City",
   },
 };
+
 
 export const Large: Story = {
   args: {

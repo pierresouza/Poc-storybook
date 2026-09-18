@@ -11,7 +11,7 @@ const meta = {
   tags: ["autodocs"],
   args: {
     onChange: fn(),
-    placeholder: "Digite seu nome",
+    placeholder: "Enter your name",
   },
 } satisfies Meta<typeof Input>;
 
@@ -22,14 +22,14 @@ export const Default: Story = {};
 
 export const WithValue: Story = {
   args: {
-    defaultValue: "Maria Silva",
+    defaultValue: "John Doe",
   },
 };
 
 export const Small: Story = {
   args: {
     size: "small",
-    placeholder: "Nome",
+    placeholder: "Name",
   },
 };
 
@@ -42,35 +42,36 @@ export const Large: Story = {
 export const Email: Story = {
   args: {
     type: "email",
-    placeholder: "email@exemplo.com",
+    placeholder: "email@example.com",
   },
 };
 
 export const Rounded: Story = {
   args: {
     rounded: "medium",
-    defaultValue: "Campo com bordas customizadas",
+    defaultValue: "Input with custom radius",
   },
 };
 
 export const Error: Story = {
   args: {
     error: true,
-    defaultValue: "Valor invalido",
+    defaultValue: "Invalid value",
   },
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    defaultValue: "Campo desabilitado",
+    defaultValue: "Disabled input",
   },
 };
 
 export const CustomClassName: Story = {
   args: {
     rounded: "medium",
-    defaultValue: "Campo personalizado",
+    defaultValue: "Customized input",
     className: "border-emerald-600 text-emerald-900 focus:ring-emerald-500 focus:border-emerald-500",
   },
 };
+

@@ -57,28 +57,29 @@ export const AllTypes: Story = {
 export const WithoutIcon: Story = {
   args: {
     showIcon: false,
-    message: "Alerta sem icone",
+    message: "Alert without icon",
   },
 };
 
 export const CloseText: Story = {
   args: {
-    closeText: "Fechar",
-    message: "Alerta com texto de fechamento",
+    closeText: "Close",
+    message: "Alert with close button text",
   },
 };
 
 export const NotClosable: Story = {
   args: {
     closable: false,
-    message: "Alerta fixo",
+    message: "Fixed alert",
   },
 };
 
 export const CustomClassName: Story = {
   args: {
     type: "success",
-    message: "Alerta personalizado",
+    message: "Customized alert",
     className: "rounded-md",
   },
 };
+

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button as UIButton } from "../components/ui/button";
 import { cn } from "../utils/cn";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,7 +8,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   /** How large should the button be? */
   size?: "small" | "medium";
   /** Button contents */
-  label: string;
+  label?: string;
   /** Optional custom background color/class (e.g. "bg-red-500" or "red-500") */
   bg?: string;
   /** How rounded should the button corners be? */
@@ -16,8 +17,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   className?: string;
   /** Optional icon */
   icon?: React.ReactNode;
-  /** Optional function to handle click */
-  onClick?: () => void;
+  /** Pass asChild to delegate rendering to child element (Radix UI Slot) */
+  asChild?: boolean;
 }
 
 const roundedClasses: Record<NonNullable<ButtonProps["rounded"]>, string> = {
@@ -32,35 +33,49 @@ const roundedClasses: Record<NonNullable<ButtonProps["rounded"]>, string> = {
 };
 
 /** Primary UI component for user interaction */
-export const Button = ({ variant = "primary", size = "medium", label, bg, rounded = "none", className, icon, onClick, ...props }: ButtonProps) => {
-  const sizeClasses = {
-    small: "px-3 py-1.5 text-sm",
-    medium: "px-4 py-2 text-base",
-  };
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      variant = "primary",
+      size = "medium",
+      label,
+      bg,
+      rounded = "none",
+      className,
+      icon,
+      children,
+      asChild,
+      ...props
+    },
+    ref
+  ) => {
+    const sizeMap = {
+      small: "sm",
+      medium: "default",
+    } as const;
 
-  const bgClass = bg ? (bg.startsWith("bg-") ? bg : `bg-${bg}`) : "";
-  const roundedClass = roundedClasses[rounded] || "rounded-lg";
+    const variantMap = {
+      primary: "default",
+      secondary: "secondary",
+    } as const;
 
-  const variantClasses = {
-    primary: `${bgClass || "bg-blue-600"} text-white hover:bg-blue-700 focus:ring-blue-500`,
-    secondary: `${bgClass || "bg-transparent"} text-gray-800 border border-gray-300 hover:bg-gray-100 focus:ring-gray-400`,
-  };
+    const bgClass = bg ? (bg.startsWith("bg-") ? bg : `bg-${bg}`) : "";
+    const roundedClass = roundedClasses[rounded] || "rounded-lg";
 
-  return (
-    <button
-      type="button"
-      className={cn(
-        "font-medium transition-colors duration-200 inline-flex items-center justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2",
-        roundedClass,
-        sizeClasses[size],
-        variantClasses[variant],
-        className,
-      )}
-      {...props}
-      onClick={onClick}
-    >
-      {icon && <span className="mr-2">{icon}</span>}
-      {label}
-    </button>
-  );
-};
+    return (
+      <UIButton
+        ref={ref}
+        asChild={asChild}
+        variant={variantMap[variant] ?? "default"}
+        size={sizeMap[size] ?? "default"}
+        className={cn(roundedClass, bgClass, className)}
+        {...props}
+      >
+        {icon && <span className="mr-2 inline-flex items-center">{icon}</span>}
+        {label ?? children}
+      </UIButton>
+    );
+  }
+);
+
+Button.displayName = "Button";

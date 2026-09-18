@@ -22,29 +22,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ComImagem: Story = {
+export const WithImage: Story = {
   args: {
     mediaType: "image",
-    videoTitle: "Banner Promocional.png",
-    status: "Imagem carregada",
-    imageLabel: "Miniatura da imagem",
+    videoTitle: "Promotional Banner.png",
+    status: "Image loaded",
+    imageLabel: "Image thumbnail",
   },
 };
 
-export const ComVideo: Story = {
+export const WithVideo: Story = {
   args: {
     mediaType: "video",
-    videoTitle: "Apresentação do Projeto.mp4",
-    status: "Processando vídeo...",
-    imageLabel: "Miniatura do vídeo",
+    videoTitle: "Project Presentation.mp4",
+    status: "Processing video...",
+    imageLabel: "Video thumbnail",
   },
 };
 
-export const Concluido: Story = {
+export const Completed: Story = {
   args: {
     mediaType: "video",
-    videoTitle: "Vídeo Institucional PMSP.mp4",
-    status: "Concluído",
-    imageLabel: "Miniatura do vídeo",
+    videoTitle: "Institutional Video.mp4",
+    status: "Completed",
+    imageLabel: "Video thumbnail",
   },
 };
+

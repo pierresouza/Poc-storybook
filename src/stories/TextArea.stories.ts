@@ -11,7 +11,7 @@ const meta = {
   tags: ["autodocs"],
   args: {
     onChange: fn(),
-    placeholder: "Digite sua mensagem",
+    placeholder: "Type your message",
   },
 } satisfies Meta<typeof TextArea>;
 
@@ -22,7 +22,7 @@ export const Default: Story = {};
 
 export const WithValue: Story = {
   args: {
-    defaultValue: "Mensagem preenchida para demonstrar o componente.",
+    defaultValue: "Pre-filled message to demonstrate component.",
   },
 };
 
@@ -30,7 +30,7 @@ export const Small: Story = {
   args: {
     size: "small",
     rows: 3,
-    placeholder: "Mensagem",
+    placeholder: "Message",
   },
 };
 
@@ -44,28 +44,29 @@ export const Large: Story = {
 export const Rounded: Story = {
   args: {
     rounded: "medium",
-    defaultValue: "Campo com bordas arredondadas customizadas.",
+    defaultValue: "Text area with custom rounded corners.",
   },
 };
 
 export const Error: Story = {
   args: {
     error: true,
-    defaultValue: "Mensagem invalida",
+    defaultValue: "Invalid message",
   },
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    defaultValue: "Campo desabilitado",
+    defaultValue: "Disabled text area",
   },
 };
 
 export const CustomClassName: Story = {
   args: {
     rounded: "medium",
-    defaultValue: "Campo personalizado",
+    defaultValue: "Customized text area",
     className: "border-emerald-600 text-emerald-900 focus:ring-emerald-500 focus:border-emerald-500",
   },
 };
+

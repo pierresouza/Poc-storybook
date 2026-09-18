@@ -13,12 +13,12 @@ const meta = {
     variant: {
       control: { type: "select" },
       options: ["primary", "secondary"],
-      description: "Define a variante de estilo do botão",
+      description: "Defines the button style variant",
     },
     rounded: {
       control: { type: "select" },
       options: ["none", "sm", "md", "lg", "xl", "2xl", "3xl", "full"],
-      description: "Define o quão arredondados são os cantos do botão",
+      description: "Defines the button corner radius",
     },
   },
   args: { onClick: fn() },

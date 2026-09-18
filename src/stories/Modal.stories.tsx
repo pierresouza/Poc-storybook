@@ -18,12 +18,12 @@ const ModalExample = ({ onClose, children, ...args }: ModalProps) => {
 
   return (
     <div className="flex min-h-screen items-center justify-center p-6">
-      <Button primary label="Abrir modal" onClick={() => setOpen(true)} />
+      <Button variant="primary" label="Open modal" onClick={() => setOpen(true)} />
       <Modal {...args} isOpen={open} onClose={handleClose}>
         <ModalContent>{children}</ModalContent>
         <ModalButtonBar>
-          <Button label="Cancelar" onClick={handleClose} />
-          <Button primary label="Confirmar" onClick={handleClose} />
+          <Button label="Cancel" onClick={handleClose} />
+          <Button variant="primary" label="Confirm" onClick={handleClose} />
         </ModalButtonBar>
       </Modal>
     </div>
@@ -40,12 +40,12 @@ const meta = {
   render: (args) => <ModalExample {...args} />,
   args: {
     isOpen: false,
-    title: "Titulo do modal",
+    title: "Modal Title",
     onClose: fn(),
     children: (
       <>
-        <p className="mb-3">Use este espaco para orientar a acao principal.</p>
-        <p>Conteudo do modal para mensagens, formularios curtos ou confirmacoes que precisam de foco.</p>
+        <p className="mb-3">Use this space to guide the primary action.</p>
+        <p>Modal content for messages, short forms, or confirmations that require focus.</p>
       </>
     ),
   },
@@ -59,23 +59,23 @@ export const Default: Story = {};
 export const Small: Story = {
   args: {
     size: "small",
-    title: "Modal pequeno",
+    title: "Small Modal",
   },
 };
 
 export const Large: Story = {
   args: {
     size: "large",
-    title: "Modal grande",
+    title: "Large Modal",
     children:
-      "Uma area maior para conteudos com mais contexto, revisoes e detalhes antes da confirmacao.",
+      "A larger area for content with more context, reviews, and details before confirmation.",
   },
 };
 
 export const Rounded: Story = {
   args: {
     rounded: "medium",
-    title: "Modal com bordas customizadas",
+    title: "Modal with Custom Border Radius",
   },
 };
 
@@ -90,7 +90,7 @@ export const WithoutFooter: Story = {
 
     return (
       <div className="flex min-h-screen items-center justify-center p-6">
-        <Button primary label="Abrir modal" onClick={() => setOpen(true)} />
+        <Button variant="primary" label="Open modal" onClick={() => setOpen(true)} />
         <Modal {...args} isOpen={open} onClose={handleClose}>
           <ModalContent>{args.children}</ModalContent>
         </Modal>
@@ -98,19 +98,19 @@ export const WithoutFooter: Story = {
     );
   },
   args: {
-    title: "Aviso simples",
-    children: "Modal sem rodape para conteudos que nao precisam de acoes adicionais.",
+    title: "Simple Alert",
+    children: "Modal without footer for content that does not require additional actions.",
   },
 };
 
 export const WithForm: Story = {
   args: {
-    title: "Enviar solicitacao",
+    title: "Submit Request",
     children: (
       <div className="grid gap-4">
-        <p className="text-gray-600">Preencha os campos para continuar.</p>
-        <Input rounded="medium" placeholder="Assunto" />
-        <TextArea rounded="medium" placeholder="Descreva sua solicitacao" rows={4} />
+        <p className="text-gray-600">Fill in the fields to continue.</p>
+        <Input rounded="medium" placeholder="Subject" />
+        <TextArea rounded="medium" placeholder="Describe your request" rows={4} />
       </div>
     ),
   },
@@ -126,7 +126,8 @@ export const CustomClassName: Story = {
   args: {
     rounded: "medium",
     className: "border-emerald-600",
-    title: "Modal personalizado",
-    children: <span className="text-emerald-900">Exemplo usando classes customizadas no container.</span>,
+    title: "Customized Modal",
+    children: <span className="text-emerald-900">Example using custom classes on container.</span>,
   },
 };
+
